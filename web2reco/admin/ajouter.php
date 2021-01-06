@@ -53,6 +53,7 @@ try {
     <label id="nomProd"> Nom du produit:</label><br/>
     <input type="text" name="nomProd"><br/>
 
+<!--Voir pour la gestion des ' et " carac spéciaux-->
     <label id="description">Description : </label><br/>
     <textarea name="description" rows="4" cols="50"></textarea><br/>
 
