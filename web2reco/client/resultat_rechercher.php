@@ -59,9 +59,9 @@ try{
         <?php
 
         if ($recherche == "") {
-            echo 'Aucun résultat trouvé';
-        } else {
-            // Finalisation de la liste des pays avec une balise <ul>
+            echo 'Veuillez entrer une recherche';
+        } 
+        else{
             foreach ($les_chocoTrouves as $un_choco) {
                 ?>
                     <li>

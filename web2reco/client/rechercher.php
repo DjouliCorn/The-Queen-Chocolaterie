@@ -8,12 +8,17 @@
 <body>
 
 <h1>Rechercher un produit</h1>
+
 <form method="get" action="resultat_rechercher.php">
 
 <input type="text" name="chocolat" />
 <input type="submit" value="Rechercher" />
 
 </form>
+
+<p>
+<a href="../index.php">Accueil</a>
+</p>
     
 </body>
 </html>
