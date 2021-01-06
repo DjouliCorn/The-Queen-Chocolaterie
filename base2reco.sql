@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 06 jan. 2021 à 10:04
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Hôte : localhost
+-- Généré le : mer. 06 jan. 2021 à 10:28
+-- Version du serveur :  10.4.17-MariaDB
+-- Version de PHP : 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,22 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Structure de la table `Categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
+CREATE TABLE `Categories` (
   `idCategorie` int(11) NOT NULL,
   `nomCategorie` char(50) DEFAULT NULL,
-  `descriptionProd` text,
-  PRIMARY KEY (`idCategorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `descriptionProd` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `categories`
+-- Déchargement des données de la table `Categories`
 --
 
-INSERT INTO `categories` (`idCategorie`, `nomCategorie`, `descriptionProd`) VALUES
+INSERT INTO `Categories` (`idCategorie`, `nomCategorie`, `descriptionProd`) VALUES
 (1, 'Chocolat noir', 'Contient un minimum de 43% de cacao'),
 (2, 'Chocolat au lait', 'Contient un minimum de 25% de cacao sec dégraissé, 14% de lait en poudre et 25% de matières grasses'),
 (3, 'Chocolat blanc', 'Contient au moins 20% de beurre de cacao et 14% de produits lactiques secs, dont 3,5% de matière grasse lactique.'),
@@ -49,27 +47,25 @@ INSERT INTO `categories` (`idCategorie`, `nomCategorie`, `descriptionProd`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure de la table `produits`
+-- Structure de la table `Produits`
 --
 
-DROP TABLE IF EXISTS `produits`;
-CREATE TABLE IF NOT EXISTS `produits` (
+CREATE TABLE `Produits` (
   `idProd` int(11) NOT NULL,
   `nomProd` char(50) DEFAULT NULL,
-  `descriptionProd` text,
+  `descriptionProd` text DEFAULT NULL,
   `prodEquitable` tinyint(1) DEFAULT NULL,
   `idCategorie` int(11) NOT NULL,
   `prix` float DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
-  `promotion` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`idProd`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `promotion` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `produits`
+-- Déchargement des données de la table `Produits`
 --
 
-INSERT INTO `produits` (`idProd`, `nomProd`, `descriptionProd`, `prodEquitable`, `idCategorie`, `prix`, `stock`, `promotion`) VALUES
+INSERT INTO `Produits` (`idProd`, `nomProd`, `descriptionProd`, `prodEquitable`, `idCategorie`, `prix`, `stock`, `promotion`) VALUES
 (1, 'Truffe', 'Confiserie inventée par Louis Dufour', 1, 1, 0.5, 500, 0),
 (2, 'Mon chéri', 'Confiserie à la liqueur de cerise', 0, 1, 1.5, 700, 1),
 (3, 'Praliné croquant', 'Chocolat à base de pralin', 0, 2, 0.7, 300, 0),
@@ -89,8 +85,24 @@ INSERT INTO `produits` (`idProd`, `nomProd`, `descriptionProd`, `prodEquitable`,
 (17, 'Tablette de chocolat', 'Tablette de chocolat à partager', 0, 4, 1.2, 453, 0),
 (18, 'Orangettes', 'Confiserie à l’orange', 0, 1, 3, 30, 1),
 (19, 'Bonbon Dulcey', 'Bonbon au chocolat avec un coeur de mandarine et une base en feuilletine', 0, 4, 6.25, 654, 1),
-(20, 'Tablette de chocolat blond NESTLE', 'Tablette de chocolat blond aux noisettes et amandes entières ', 0, 4, 2.89, 110, 0),
+(20, 'Tablette de chocolat blond NESTLE', 'Tablette de chocolat blond aux noisettes et amandes entières', 0, 4, 2.89, 110, 0),
 (21, 'Galak', 'Tablette avec un dauphin dessus', 0, 3, 1.23, 358, 1);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `Categories`
+--
+ALTER TABLE `Categories`
+  ADD PRIMARY KEY (`idCategorie`);
+
+--
+-- Index pour la table `Produits`
+--
+ALTER TABLE `Produits`
+  ADD PRIMARY KEY (`idProd`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -49,7 +49,7 @@ try {
 </head>
 <body>
     <h1>Ajout de Produit</h1>
-    <form method="post"> 
+    <form method="post" action="ajouter_action.php"> 
     <label id="nomProd"> Nom du produit:</label><br/>
     <input type="text" name="nomProd"><br/>
 
@@ -57,8 +57,8 @@ try {
     <textarea name="description" rows="4" cols="50"></textarea><br/>
 
     <label id="prodEquitable">Produit équitable</label><br>
-                    <input type="radio" name="equitable" value="false" checked="checked"> Non
-                    <input type="radio" name="equitable" value="true"> Oui
+                    <input type="radio" name="equitable" value="0" checked="checked"> Non
+                    <input type="radio" name="equitable" value="1"> Oui
                     <br>
     <label id="categorie">Catégorie</label><br>
 
@@ -73,8 +73,8 @@ try {
     <input type="number" step="1" min="0" name="stock"><br/>
 
     <label id="promotion">Promotion</label><br>
-                    <input type="radio" name="promotion" value="false" checked="checked"> Non
-                    <input type="radio" name="promotion" value="true"> Oui
+                    <input type="radio" name="promotion" value="0" checked="checked"> Non
+                    <input type="radio" name="promotion" value="1"> Oui
                     <br>
 
     <button type="submit" name="save">Ajouter le produit</button>
