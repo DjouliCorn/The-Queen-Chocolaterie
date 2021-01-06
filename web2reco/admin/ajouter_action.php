@@ -62,8 +62,25 @@ $promotion = $_REQUEST['promotion'];
 
 <?php 
 
-echo 'Produit ajouté : ' . $nomProd . " - " . $descriptionProd . " - " . $prodEquitable . " - " . $idCategorie . " - " . 
-$prix . " - " . $stock . " - " . $promotion;
+echo 'Produit ajouté : ' . $nomProd . " - " . $descriptionProd . " - ";
+switch ($prodEquitable) {
+    case 0:
+        echo "";
+        break;
+    case 1:
+        echo "produit équitable - ";
+        break;
+};
+echo  $idCategorie . " - " . 
+$prix . " - " . $stock; 
+switch ($promotion) {
+    case 0:
+        echo "";
+        break;
+    case 1:
+        echo " - en promotion";
+        break;
+};
 
 ?>
 
