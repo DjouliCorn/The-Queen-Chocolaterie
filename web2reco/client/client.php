@@ -7,10 +7,14 @@
 </head>
 <body>
 
-Afficher tous les produits 
-Rechercher un produit
-Afficher le panier
-
-    
+<ul>
+<li><a href='../tousProduits.php'>
+Afficher tous les produits </a></li>
+<li><a href='rechercher.php'>
+Rechercher un produit</a></li>
+<li><a href='panier.php'>
+Afficher le panier</a></li>
+<li><a href='../index.php'>Retour Accueil</a></li>
+</ul>
 </body>
 </html>

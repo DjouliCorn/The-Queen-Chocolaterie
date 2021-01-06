@@ -7,11 +7,17 @@
 </head>
 <body>
 
-Afficher tous les produits
-Ajouter un produit 
-Supprimer un produit 
-Mettre à jour un produit 
-
+<ul>
+<li><a href='../tousProduits.php'>
+Afficher tous les produits</a></li>
+<li><a href='ajouter.php'>
+Ajouter un produit</a></li>
+<li><a href='supprimer.php'>
+Supprimer un produit </a></li>
+<li><a href='modifier.php'>
+Mettre à jour un produit</a></li>
+<li><a href='../index.php'>Retour Accueil</a></li>
+</ul>
 
 </body>
 </html>
