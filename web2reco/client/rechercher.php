@@ -1,3 +1,43 @@
+<?php
+try {
+
+    require_once '../inc/accesBDD.php';
+
+    $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $options_categories = "";
+    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
+
+    $sql = "SELECT idCategorie, nomCategorie FROM Categories ORDER BY idCategorie ASC";
+    $resultat = $dbh->query($sql);
+
+    while ( ($une_categorie = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
+        // Traitement de chaque résultat qui est contenu dans la variable $un_continent
+        $options_categories .= '<option value="' . $une_categorie['idCategorie'] . '">' . $une_categorie['nomCategorie'] . '</option>';
+    }
+
+    
+} catch (Exception $e) {
+
+    echo '<!DOCTYPE html>';
+    echo '<html lang="fr"><head>';
+    echo '<meta charset="utf-8">';
+    echo '<title>Problème rencontré</title>';
+    echo '</head><body>';
+
+    echo '<p>' . mb_convert_encoding($e->getMessage(), 'UTF-8', 'Windows-1252') . '</p>';
+
+    if (isset($dbh) && $dbh->errorInfo()[0] == "42000") {
+        echo '<p>Erreur de syntaxe dans la requête SQL :</p>';
+        echo '<pre>' . $sql . '</pre>';
+    }
+
+    echo '</body></html>';
+
+    // Arrêt de l'exécution du script
+    die;
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +52,13 @@
 <form method="get" action="resultat_rechercher.php">
 
 <input type="text" name="chocolat" />
-<input type="submit" value="Rechercher" />
-
+<input type="submit" value="Rechercher" /><br>
+</form>
+<form method="get" action="resultat_categorie.php">
+<select name="idCategorie">
+                <?php echo $options_categories; ?>
+            </select>
+<input type="submit" value="Rechercher par catégorie" /><br>
 </form>
 
 <p>
