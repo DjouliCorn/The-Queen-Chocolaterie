@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 06 jan. 2021 à 10:28
+-- Généré le : mer. 06 jan. 2021 à 17:16
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.13
 
@@ -24,29 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Categories`
---
-
-CREATE TABLE `Categories` (
-  `idCategorie` int(11) NOT NULL,
-  `nomCategorie` char(50) DEFAULT NULL,
-  `descriptionProd` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `Categories`
---
-
-INSERT INTO `Categories` (`idCategorie`, `nomCategorie`, `descriptionProd`) VALUES
-(1, 'Chocolat noir', 'Contient un minimum de 43% de cacao'),
-(2, 'Chocolat au lait', 'Contient un minimum de 25% de cacao sec dégraissé, 14% de lait en poudre et 25% de matières grasses'),
-(3, 'Chocolat blanc', 'Contient au moins 20% de beurre de cacao et 14% de produits lactiques secs, dont 3,5% de matière grasse lactique.'),
-(4, 'Chocolat blond', 'Destiné à enrober des fourrages pour confectionner des pâtisseries ou des bonbons au chocolat'),
-(5, 'Chocolat de couverture', 'Destiné à enrober des fourrages pour confectionner des bonbons chocolat');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `Produits`
 --
 
@@ -55,7 +32,7 @@ CREATE TABLE `Produits` (
   `nomProd` char(50) DEFAULT NULL,
   `descriptionProd` text DEFAULT NULL,
   `prodEquitable` tinyint(1) DEFAULT NULL,
-  `idCategorie` int(11) NOT NULL,
+  `idCategorie` int(11) DEFAULT NULL,
   `prix` float DEFAULT NULL,
   `stock` int(11) DEFAULT NULL,
   `promotion` tinyint(1) DEFAULT NULL
@@ -85,24 +62,40 @@ INSERT INTO `Produits` (`idProd`, `nomProd`, `descriptionProd`, `prodEquitable`,
 (17, 'Tablette de chocolat', 'Tablette de chocolat à partager', 0, 4, 1.2, 453, 0),
 (18, 'Orangettes', 'Confiserie à l’orange', 0, 1, 3, 30, 1),
 (19, 'Bonbon Dulcey', 'Bonbon au chocolat avec un coeur de mandarine et une base en feuilletine', 0, 4, 6.25, 654, 1),
-(20, 'Tablette de chocolat blond NESTLE', 'Tablette de chocolat blond aux noisettes et amandes entières', 0, 4, 2.89, 110, 0),
-(21, 'Galak', 'Tablette avec un dauphin dessus', 0, 3, 1.23, 358, 1);
+(20, 'Tablette de chocolat blond NESTLE', 'Tablette de chocolat blond aux noisettes et amandes entières ', 0, 4, 2.89, 110, 0),
+(21, 'Galak', 'Tablette avec un dauphin dessus', 0, 3, 1.23, 358, 1),
+(22, 'chcooooooooo', 'lfkkg', 0, 1, 1.23, 24, 1);
 
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `Categories`
---
-ALTER TABLE `Categories`
-  ADD PRIMARY KEY (`idCategorie`);
-
---
 -- Index pour la table `Produits`
 --
 ALTER TABLE `Produits`
-  ADD PRIMARY KEY (`idProd`);
+  ADD PRIMARY KEY (`idProd`),
+  ADD KEY `idCategorie` (`idCategorie`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `Produits`
+--
+ALTER TABLE `Produits`
+  MODIFY `idProd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `Produits`
+--
+ALTER TABLE `Produits`
+  ADD CONSTRAINT `Produits_ibfk_1` FOREIGN KEY (`idCategorie`) REFERENCES `Categories` (`idCategorie`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
