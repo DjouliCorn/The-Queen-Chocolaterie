@@ -9,7 +9,8 @@ try {
     //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
     $recherche = (string) filter_input(INPUT_GET, 'chocolat', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-    $sql = "SELECT * FROM chocolaterie.Produits, chocolaterie.Categories WHERE Produits.idCategorie = Categories.idCategorie";
+    $sql = "SELECT * FROM chocolaterie.Produits, chocolaterie.Categories WHERE Produits.idCategorie = Categories.idCategorie
+    ORDER BY idProd";
     // Exécution de la requête de sélection
     $resultat = $dbh->query($sql);
     $tous_les_chocos = $resultat->fetchAll(PDO::FETCH_ASSOC);
@@ -87,6 +88,10 @@ try {
         ?>
 
     </ul>
+
+<!--Attention la page est utilisée pour le client et l'admin
+retour obligatoir sur la page d'accueil principal : à revoir -->
+<a href="index.php"> Retour à l'accueil </a>
 
 </body>
 

@@ -62,7 +62,8 @@ $promotion = $_REQUEST['promotion'];
 
 <?php 
 
-echo $sql;
+echo 'Produit ajouté : ' . $nomProd . " - " . $descriptionProd . " - " . $prodEquitable . " - " . $idCategorie . " - " . 
+$prix . " - " . $stock . " - " . $promotion;
 
 ?>
 
