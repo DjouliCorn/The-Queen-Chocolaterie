@@ -10,7 +10,7 @@ try{
     //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
     $recherche = (string) filter_input(INPUT_GET, 'chocolat', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-    $sql = "SELECT nomProd, descriptionProd FROM chocolaterie.produits WHERE (nomProd LIKE '%$recherche%') OR (descriptionProd LIKE '%$recherche%')";
+    $sql = "SELECT nomProd, descriptionProd FROM chocolaterie.Produits WHERE (nomProd LIKE '%$recherche%') OR (descriptionProd LIKE '%$recherche%')";
     // Exécution de la requête de sélection
     $resultat = $dbh->query($sql);
     $les_chocoTrouves = $resultat->fetchAll(PDO::FETCH_ASSOC);
@@ -58,7 +58,7 @@ try{
     <ul>
         <?php
 
-        if ($recherche == "" || $recherche != $les_chocoTrouves) {
+        if ($recherche == "") {
             echo 'Aucun résultat trouvé';
         } else {
             // Finalisation de la liste des pays avec une balise <ul>
