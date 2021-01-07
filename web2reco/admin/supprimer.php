@@ -8,7 +8,7 @@ try {
 
     $options_listeProduits = "";
 
-    $sql = "SELECT idProd, nomProd FROM produits";
+    $sql = "SELECT idProd, nomProd FROM Produits";
     $resultat = $dbh->query($sql);
 
     while (($une_optionProduit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
