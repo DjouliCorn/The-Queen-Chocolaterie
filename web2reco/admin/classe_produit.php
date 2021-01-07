@@ -1,7 +1,7 @@
 <?php
 
-    $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once '../inc/accesBDD.php';   
+
 
     class Produit{
         private $idProd;
@@ -14,11 +14,19 @@
         private $promotion;
 
         public function __construct($p_idProd){
+
+            //$dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+            //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //$recherche = (string) filter_input(INPUT_GET, 'adminUpdate', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            //echo $recherche;
+
             $this->idProd = $p_idProd;
-            $sql = "SELECT nomProd, descriptionProd FROM chocolaterie.Produits WHERE idCategorie = $recherche";
-            $resultat = $dbh->query($sql);
-            $produitTrouve = $resultat->fetchAll(PDO::FETCH_ASSOC);
-            $dbh = null;
+            //$sql = "SELECT idProd, nomProd, descriptionProd, prodEquitable, 
+            //idCategorie, prix, stock, promotion FROM chocolaterie.Produits ";
+            //$resultat = $dbh->query($sql);
+            //$produitTrouve = $resultat->fetchAll(PDO::FETCH_ASSOC);
+            
             
             $this->nomProd = $produitTrouve['nomProd'];
             $this->descriptionProd = $produitTrouve['descriptionProd'];
@@ -32,7 +40,7 @@
         public function generateForms(){
             echo'<form method="post" action="ajouter_action.php">';
             echo '<label id="nomProd"> Nom du produit: </label><br/>';
-            echo '<input type="text" name="nomProd" value="'.$nomProd.'"><br/>';
+            echo '<input type="text" name="nomProd" value="'.$this->nomProd.'"><br/>';
             echo '<label id="description">Description : </label><br/>';
             echo '<textarea name="description" rows="4" cols="50"></textarea><br/>';
 
@@ -56,4 +64,6 @@
             echo '<button type="submit" name="save">Ajouter le produit</button></form>';
         }
     }
+
+    $dbh = null;
 ?>

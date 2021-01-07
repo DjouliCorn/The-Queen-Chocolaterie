@@ -2,8 +2,8 @@
 try {
 
     require_once '../inc/accesBDD.php';
-    require_once 'classe_produit.php';
-
+    
+    
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -12,22 +12,10 @@ try {
     $sql = "SELECT idProd, nomProd FROM Produits";
     $resultat = $dbh->query($sql);
 
-
-    $message = "";
-    if(isset($_POST['selectForUpdate'])){
-        $idProd = $_REQUEST['adminUpdate'];
-        $formProd = new Produit($idProd);
-        $formProd->generateForms();
-    }  
-
-
     while (($une_optionProduit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
         // Traitement de chaque résultat qui est contenu dans la variable $un_continent
         $options_listeProduits .= '<option value="' . $une_optionProduit['idProd'] . '">' . $une_optionProduit['nomProd'] . '</option>';
-
-        
     }
-
     
 } catch (Exception $e) {
 
@@ -69,7 +57,7 @@ try {
 
     <h1>Mettre à jour les produits</h1>
 
-    <form method="post" action="">
+    <form method="post" action="modifier_action.php">
         <label id="selection">Les produits de la chocolaterie :</label><br>
 
         <select name="adminUpdate">
