@@ -12,8 +12,6 @@
 Afficher tous les produits </a></li>
 <li><a href='rechercher.php'>
 Rechercher un produit</a></li>
-<li><a href='panier.php'>
-Afficher le panier</a></li>
 <li><a href='../index.php'>Retour Accueil</a></li>
 </ul>
 </body>

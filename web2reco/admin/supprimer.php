@@ -61,6 +61,9 @@ try {
 
         <button type="submit" name="suppr">Supprimer le produit</button>
     </form>
+
+    <a href="admin.php">Retour à l'accueil administrateur</a>
+
 </body>
 
 </html>

@@ -80,6 +80,9 @@ try {
 
     <button type="submit" name="save">Ajouter le produit</button>
     </form>
+
+
+    <a href="admin.php">Retour à l'accueil administrateur</a>
     
 </body>
 </html>

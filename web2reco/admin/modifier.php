@@ -75,6 +75,9 @@ try {
     
     //echo $options_listeProduits['idProd'];
     //echo $options_listeProduits['nomProd'];?>
+
+<a href="admin.php">Retour à l'accueil administrateur</a>
+
 </body>
 
 </html>

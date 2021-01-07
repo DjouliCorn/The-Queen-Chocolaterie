@@ -62,7 +62,7 @@ try {
 </form>
 
 <p>
-<a href="../index.php">Accueil</a>
+<a href="client.php">Accueil client</a>
 </p>
     
 </body>

@@ -90,7 +90,7 @@ try {
     </ul>
 
 <!--Attention la page est utilisée pour le client et l'admin
-retour obligatoir sur la page d'accueil principal : à revoir -->
+retour obligatoire sur la page d'accueil principal : à revoir -->
 <a href="index.php"> Retour à l'accueil </a>
 
 </body>
