@@ -9,7 +9,7 @@ try {
 
     $options_listeProduits = "";
 
-    $sql = "SELECT idProd, nomProd FROM Produits";
+    $sql = "SELECT idProd, nomProd FROM Produits ORDER BY idProd ASC";
     $resultat = $dbh->query($sql);
 
     while (($une_optionProduit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
@@ -67,7 +67,14 @@ try {
 
         <button type="submit" name="selectForUpdate">Sélectionner</button>
     </form>
+
+    <?php 
+    //var_dump($options_listeProduits['nomProd']);
+    //var_dump($options_listeProduits['idProd']);
+   
     
+    //echo $options_listeProduits['idProd'];
+    //echo $options_listeProduits['nomProd'];?>
 </body>
 
 </html>

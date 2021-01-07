@@ -8,14 +8,9 @@ try{
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
-    $recherche = (integer) filter_input(INPUT_GET, 'adminUpdate', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-    $sql = "SELECT * FROM chocolaterie.Produits WHERE idProd = $recherche ";
-    // Exécution de la requête de sélection
-    $resultat = $dbh->query($sql);
-    $les_chocoUpdate = $resultat->fetchAll(PDO::FETCH_ASSOC);
-
-    $dbh = null;
+    
+    //$les_chocoUpdate = $_GET["idProd"];
+    //$dbh = null;
 
 } catch (Exception $e) {
 
@@ -49,21 +44,22 @@ try{
 <body>
 
 <?php 
+    $recherche = (int) filter_input(INPUT_POST, 'adminUpdate', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    var_dump($recherche);
 
-$formUpdate = new Produit($les_chocoUpdate);
+    //$sql = "SELECT idProd FROM Produits WHERE idProd = $recherche ";
+    // Exécution de la requête de sélection
+    //$resultat = $dbh->query($sql);
+    //$les_chocoUpdate = $resultat->fetchAll(PDO::FETCH_ASSOC);
+
+//$idUpdate = $les_chocoUpdate['idProd'];
+//var_dump($idUpdate);
+$formUpdate = new Produit($recherche);
 $formUpdate->generateForms();
-
-var_dump($formUpdate);
-echo '<br>';
-echo '<br>';
-var_dump($les_chocoUpdate);
-echo '<br>';
-echo '<br>';
-var_dump($recherche);
 
 ?>
 
-
+<p><a href="admin.php">Retour</a></p>
 
     
 </body>
