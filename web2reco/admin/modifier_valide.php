@@ -18,7 +18,7 @@ try {
     $promotion = $_REQUEST['promotion'];
 
 
-    $sql = "UPDATE Produits SET nomProd = '$nomProd', descriptionProd = '$descriptionProd', 
+    $sql = "UPDATE Produits SET nomProd = '$nomProd', descriptionProd = '$descriptionProd', idCategorie = '$idCategorie',
     prodEquitable = '$prodEquitable', prix = '$prix', stock = '$stock', promotion = '$promotion' WHERE $idProd = idProd ";
     $resultat = $dbh->query($sql);
 
