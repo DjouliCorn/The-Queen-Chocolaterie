@@ -1,0 +1,16 @@
+body {
+    background-color: pink;
+}
+
+h1 {
+    font-family: fantasy;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
