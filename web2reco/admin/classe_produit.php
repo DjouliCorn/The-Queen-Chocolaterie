@@ -38,9 +38,14 @@ require_once '../inc/accesBDD.php';
             
 
             foreach($produitTrouve as $unProduit){
+
                 $this->idProd = $unProduit['idProd'];
                 $this->nomProd = $unProduit['nomProd'];
                 //var_dump($unProduit['nomProd']);
+
+                $this->nomProd = $unProduit['nomProd'];
+                var_dump($unProduit['nomProd']);
+
                 $this->descriptionProd = $unProduit['descriptionProd'];
                 $this->prodEquitable = $unProduit['prodEquitable'];
                 $this->idCategorie = $unProduit['idCategorie'];
@@ -51,7 +56,7 @@ require_once '../inc/accesBDD.php';
             
             //$this->nomProd = $produitTrouve["nomProd"];
             
-            
+
         }
 
         public function generateForms(){
@@ -83,7 +88,9 @@ require_once '../inc/accesBDD.php';
 
 
             echo'<form method="post" action="modifier_valide.php">';
+
             echo '<input type="hidden" name="idProd" value="'.$this->idProd.'"><br/>';
+
             echo '<label id="nomProd"> Nom du produit: </label><br/>';
             echo '<input type="text" name="nomProd" value="'.$this->nomProd.'"><br/>';
             echo '<label id="description">Description : </label><br/>';
