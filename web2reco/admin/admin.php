@@ -7,7 +7,9 @@
     <link href="../../css2reco/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- Menu Admin -->
 
+<h1>Bienvenue dans le Menu Admin</h1>
 <ul>
 <li><a href='../tousProduits.php'>
 Afficher tous les produits</a></li>

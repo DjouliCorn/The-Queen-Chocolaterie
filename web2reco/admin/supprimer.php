@@ -11,8 +11,8 @@ try {
     $sql = "SELECT idProd, nomProd FROM Produits";
     $resultat = $dbh->query($sql);
 
+    //Récupération des produits pour la liste déroulante
     while (($une_optionProduit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
-        // Traitement de chaque résultat qui est contenu dans la variable $un_continent
         $options_listeProduits .= '<option value="' . $une_optionProduit['idProd'] . '">' . $une_optionProduit['nomProd'] . '</option>';
     }
 } catch (Exception $e) {
@@ -51,7 +51,7 @@ try {
 <body>
 
     <h1>Suppression d'un produit</h1>
-
+    <!--Liste déroulante des produits-->
     <form method="post" action="supprimer_action.php">
         <label id="selection">Les produits disponibles :</label><br>
 

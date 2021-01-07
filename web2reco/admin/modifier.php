@@ -9,11 +9,11 @@ try {
 
     $options_listeProduits = "";
 
+    //Requete pour la liste déroulante de tous les produits
     $sql = "SELECT idProd, nomProd FROM Produits ORDER BY idProd ASC";
     $resultat = $dbh->query($sql);
 
     while (($une_optionProduit = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
-        // Traitement de chaque résultat qui est contenu dans la variable $un_continent
         $options_listeProduits .= '<option value="' . $une_optionProduit['idProd'] . '">' . $une_optionProduit['nomProd'] . '</option>';
     }
     
@@ -69,13 +69,7 @@ try {
         <button type="submit" name="selectForUpdate">Sélectionner</button>
     </form>
 
-    <?php 
-    //var_dump($options_listeProduits['nomProd']);
-    //var_dump($options_listeProduits['idProd']);
-   
     
-    //echo $options_listeProduits['idProd'];
-    //echo $options_listeProduits['nomProd'];?>
 
 <a href="admin.php">Retour à l'accueil administrateur</a>
 

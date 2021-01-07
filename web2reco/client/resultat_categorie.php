@@ -7,13 +7,13 @@ try{
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
     $recherche = (string) filter_input(INPUT_GET, 'idCategorie', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     $sql = "SELECT nomProd, descriptionProd FROM chocolaterie.Produits WHERE idCategorie = $recherche";
-    // Exécution de la requête de sélection
     $resultat = $dbh->query($sql);
     $les_chocoTrouves = $resultat->fetchAll(PDO::FETCH_ASSOC);
+
+    //Recherche en fonction des données choisies dans la page rechercher.php
 
     $dbh = null;
 
@@ -58,7 +58,7 @@ try{
 
     <ul>
         <?php
-
+        //Construction de la liste
         if ($recherche == "") {
             echo 'Veuillez entrer une recherche';
         } 

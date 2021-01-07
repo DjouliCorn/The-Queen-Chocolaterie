@@ -2,8 +2,13 @@ body {
     background-color: pink;
 }
 
+@font-face {
+    font-family: "Unicorns";
+    src: url('UnicornsAreAwesome-xdEq.ttf');
+}
+
 h1 {
-    font-family: fantasy;
+    font-family: 'Unicorns';
 }
 
 ul {

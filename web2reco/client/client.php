@@ -7,8 +7,11 @@
     <link href="../../css2reco/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- Menu Client -->
+<h1>Bienvenue dans le Menu Client</h1>
 
 <ul>
+
 <li><a href='../tousProduits.php'>
 Afficher tous les produits </a></li>
 <li><a href='rechercher.php'>

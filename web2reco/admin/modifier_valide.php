@@ -6,7 +6,7 @@ try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //$options_listeProduits = "";
+    //Récupération de toutes les données du formulaire pour mettre à jour l'entrée concernée de la database
 
     $idProd = $_REQUEST['idProd'];
     $nomProd = $_REQUEST['nomProd'];
@@ -17,12 +17,11 @@ try {
     $stock = $_REQUEST['stock'];
     $promotion = $_REQUEST['promotion'];
 
-
+    //Requete SQL de l'opération
     $sql = "UPDATE Produits SET nomProd = '$nomProd', descriptionProd = '$descriptionProd', idCategorie = '$idCategorie',
     prodEquitable = '$prodEquitable', prix = '$prix', stock = '$stock', promotion = '$promotion' WHERE $idProd = idProd ";
     $resultat = $dbh->query($sql);
 
-    var_dump($descriptionProd);
 
     $resultat = $dbh->query($sql);
 
@@ -61,13 +60,11 @@ try {
 
     <h1>Mise à jour réussie</h1>
 
-    <?php
-    echo $nomProd;
-    ?>
-
+    
+    <ul>
     <li><a href="supprimer.php">Mettre à jour un autre produit</a></li>
     <li><a href="admin.php">Retour à l'accueil administrateur</a></li>
-
+    </ul>
 </body>
 
 </html>

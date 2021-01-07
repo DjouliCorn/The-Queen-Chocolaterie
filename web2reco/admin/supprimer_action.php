@@ -8,9 +8,10 @@ try {
 
     $options_listeProduits = "";
 
+    //Récupération de l'ID du produit à supprimer via formulaire
     $idProd = $_REQUEST['adminSuppr'];
 
-
+    //Requete pour la suppression demandée dans la page supprimer.php
     $sql = "DELETE FROM Produits WHERE $idProd = idProd";
     $resultat = $dbh->query($sql);
 
@@ -48,10 +49,10 @@ try {
 <body>
 
     <h1>Suppression réussie</h1>
-
+    <ul>
     <li><a href="supprimer.php">Supprimer un autre produit</a></li>
     <li><a href="admin.php">Retour à l'accueil administrateur</a></li>
-
+    </ul>
 </body>
 
 </html>

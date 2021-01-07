@@ -7,13 +7,12 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $options_categories = "";
-    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
 
+    //Requete pour pré-peupler le menu déroulant des Catégories
     $sql = "SELECT idCategorie, nomCategorie FROM Categories ORDER BY idCategorie ASC";
     $resultat = $dbh->query($sql);
 
     while ( ($une_categorie = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
-        // Traitement de chaque résultat qui est contenu dans la variable $un_continent
         $options_categories .= '<option value="' . $une_categorie['idCategorie'] . '">' . $une_categorie['nomCategorie'] . '</option>';
     }
 
@@ -50,11 +49,12 @@ try {
 </head>
 <body>
     <h1>Ajout de Produit</h1>
+    <!--Construction du formulaire pour saisir les données-->
+
     <form method="post" action="ajouter_action.php"> 
     <label id="nomProd"> Nom du produit:</label><br/>
     <input type="text" name="nomProd"><br/>
 
-<!--Voir pour la gestion des ' et " carac spéciaux-->
     <label id="description">Description : </label><br/>
     <textarea name="description" rows="4" cols="50"></textarea><br/>
 

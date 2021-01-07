@@ -7,10 +7,7 @@ try{
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
-    
-    //$les_chocoUpdate = $_GET["idProd"];
-    //$dbh = null;
+    //Appel de la BDD
 
 } catch (Exception $e) {
 
@@ -46,18 +43,11 @@ try{
 
 <?php 
     $recherche = (int) filter_input(INPUT_POST, 'adminUpdate', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    var_dump($recherche);
 
-    //$sql = "SELECT idProd FROM Produits WHERE idProd = $recherche ";
-    // Exécution de la requête de sélection
-    //$resultat = $dbh->query($sql);
-    //$les_chocoUpdate = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
-//$idUpdate = $les_chocoUpdate['idProd'];
-//var_dump($idUpdate);
 $formUpdate = new Produit($recherche);
 $formUpdate->generateForms();
-
+//Appel du constructeur pour instancier un produit et de la fonction de la classe Produit dans classe_produit.php
 ?>
 
 <p><a href="admin.php">Retour</a></p>
