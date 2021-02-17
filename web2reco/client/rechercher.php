@@ -7,13 +7,12 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $options_categories = "";
-    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
 
     $sql = "SELECT idCategorie, nomCategorie FROM Categories ORDER BY idCategorie ASC";
     $resultat = $dbh->query($sql);
 
+    //Création du tableau à double entrée du résultat de la requête SQL
     while ( ($une_categorie = $resultat->fetch(PDO::FETCH_ASSOC)) != FALSE) {
-        // Traitement de chaque résultat qui est contenu dans la variable $un_continent
         $options_categories .= '<option value="' . $une_categorie['idCategorie'] . '">' . $une_categorie['nomCategorie'] . '</option>';
     }
 
@@ -44,11 +43,12 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rechercher un produit</title>
+    <link href="../../css2reco/style.css" rel="stylesheet">
 </head>
 <body>
 
 <h1>Rechercher un produit</h1>
-
+<!--Création du formulaire de la page -->
 <form method="get" action="resultat_rechercher.php">
 
 <input type="text" name="chocolat" />
@@ -62,7 +62,7 @@ try {
 </form>
 
 <p>
-<a href="../index.php">Accueil</a>
+<a href="client.php">Accueil client</a>
 </p>
     
 </body>

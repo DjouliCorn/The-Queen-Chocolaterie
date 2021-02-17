@@ -7,19 +7,17 @@ try {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $options_categories = "";
-    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
 
+    //Récupération des saisies du formulaire "ajouter.php" grâce au super globale $_REQUEST
+    $nomProd = $_REQUEST['nomProd'];
+    $descriptionProd = $_REQUEST['description'];
+    $prodEquitable = $_REQUEST['equitable'];
+    $idCategorie = $_REQUEST['idCategorie'];
+    $prix = $_REQUEST['prix'];
+    $stock = $_REQUEST['stock'];
+    $promotion = $_REQUEST['promotion'];
 
-//$idProduit = $_REQUEST['idProduit'];
-$nomProd = $_REQUEST['nomProd'];
-$descriptionProd = $_REQUEST['description'];
-$prodEquitable = $_REQUEST['equitable'];
-$idCategorie = $_REQUEST['idCategorie'];
-$prix = $_REQUEST['prix'];
-$stock = $_REQUEST['stock'];
-$promotion = $_REQUEST['promotion'];
-
-
+    //Insertion dans la Base de Données
     $sql = "INSERT INTO Produits (idProd, nomProd, descriptionProd, prodEquitable, idCategorie, 
     prix, stock, promotion) VALUES (idProd, '$nomProd', '$descriptionProd', '$prodEquitable', '$idCategorie', 
     '$prix', '$stock', '$promotion')";
@@ -55,15 +53,17 @@ $promotion = $_REQUEST['promotion'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout réussi</title>
+    <link href="../../css2reco/style.css" rel="stylesheet">
 </head>
 <body>
 
 <h1>Ajout réussi</h1>
 
 <?php 
-
+//Résumé du nouveau produit
 echo 'Produit ajouté : ' . $nomProd . " - " . $descriptionProd . " - ";
 switch ($prodEquitable) {
+    //Switch pour afficher la mention seulement si elle est vraie
     case 0:
         echo "";
         break;
@@ -74,6 +74,7 @@ switch ($prodEquitable) {
 echo  $idCategorie . " - " . 
 $prix . " - " . $stock; 
 switch ($promotion) {
+        //Switch pour afficher la mention seulement si elle est vraie
     case 0:
         echo "";
         break;
@@ -87,6 +88,6 @@ switch ($promotion) {
 <ul>
 <li><a href="ajouter.php">Ajouter un nouveau produit</a></li> 
 <li><a href="admin.php">Retour à l'accueil administrateur</a></li> 
-
+</ul>
 </body>
 </html>

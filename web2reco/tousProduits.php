@@ -6,14 +6,14 @@ try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //$recherche = isset($_GET['chocolat']) ? $_GET['chocolat'] : '';
     $recherche = (string) filter_input(INPUT_GET, 'chocolat', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     $sql = "SELECT * FROM chocolaterie.Produits, chocolaterie.Categories WHERE Produits.idCategorie = Categories.idCategorie
     ORDER BY idProd";
-    // Exécution de la requête de sélection
     $resultat = $dbh->query($sql);
     $tous_les_chocos = $resultat->fetchAll(PDO::FETCH_ASSOC);
+
+    //Requête SQL pour récupérer la liste de produits dans la base de données
 
     $dbh = null;
 } catch (Exception $e) {
@@ -46,6 +46,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tous les produits disponibles</title>
+    <link href="../css2reco/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,6 +56,7 @@ try {
     <ul>
 
         <?php
+        //Construction de la liste
         foreach ($tous_les_chocos as $un_choco) {
         ?>
             <li>
@@ -89,8 +91,7 @@ try {
 
     </ul>
 
-<!--Attention la page est utilisée pour le client et l'admin
-retour obligatoir sur la page d'accueil principal : à revoir -->
+
 <a href="index.php"> Retour à l'accueil </a>
 
 </body>

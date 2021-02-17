@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil client</title>
+    <link href="../../css2reco/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- Menu Client -->
+<h1>Bienvenue dans le Menu Client</h1>
 
 <ul>
+
 <li><a href='../tousProduits.php'>
 Afficher tous les produits </a></li>
 <li><a href='rechercher.php'>
 Rechercher un produit</a></li>
-<li><a href='panier.php'>
-Afficher le panier</a></li>
 <li><a href='../index.php'>Retour Accueil</a></li>
 </ul>
 </body>
