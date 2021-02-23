@@ -44,9 +44,11 @@ When connected as administrator :
 
 ## Usage
 
-1. Download the project
-2. Create a SQL database named : "chocolaterie"
-3. Open base2reco.sql and copy/paste the sql requests to create the tables and insert datas
-4. You can add new chocolates with the admin account, it'll be updated in the database
+1. Download the project into a local server (Wamp, Mamp, Xampp)
+2. Create a SQL database named : ``chocolaterie``
+3. Open ``base2reco.sql`` and copy/paste the sql requests to create the tables and insert datas
+4. Modify ``web2reco/inc/accessBDD.php`` with your own server informations
+5. Run ``web2reco/index.php`` with a local server
+
 
 
