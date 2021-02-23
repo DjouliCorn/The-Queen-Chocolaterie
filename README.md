@@ -49,6 +49,3 @@ When connected as administrator :
 3. Open ``base2reco.sql`` and copy/paste the sql requests to create the tables and insert datas
 4. Modify ``web2reco/inc/accessBDD.php`` with your own server informations
 5. Run ``web2reco/index.php`` with a local server
-
-
-
