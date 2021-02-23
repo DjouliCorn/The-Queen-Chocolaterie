@@ -34,7 +34,7 @@ __2 accounts:__ client account and admin account
 When connected as client :
 
 - show all chocolates available in the shop
-- search for specific chocolates by name or by categories
+- search for specific chocolates by name or by categorie
 
 When connected as administrator :
 
